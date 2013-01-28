@@ -69,6 +69,7 @@ module RedmineS3
       end
 
       def put(attachment, data)
+        attachment.disk_filename = Attachment.disk_filename(attachment.filename)
         # if data is a string, turns it into a buffer
         if data.is_a?(String)
           data = StringIO.new(data)

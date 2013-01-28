@@ -29,6 +29,9 @@ module RedmineS3
         logger.debug("Deleting #{disk_filename}")
         RedmineS3::Connection.delete(disk_filename)
       end
+
+      # Prevent saving to file system and generating the new disk_filename
+      def files_to_final_location; true end
     end
   end
 end
