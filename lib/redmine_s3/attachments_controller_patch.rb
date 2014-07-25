@@ -20,7 +20,7 @@ module RedmineS3
         if @attachment.container.is_a?(Version) || @attachment.container.is_a?(Project)
           @attachment.increment_download
         end
-        if RedmineS3::Connection.proxy?
+        if RedmineS3::Connection.proxy? && RedmineS3::Connection.disposition_override?
           disposition = if @attachment.image? || @attachment.text?
                           'inline'
                         else

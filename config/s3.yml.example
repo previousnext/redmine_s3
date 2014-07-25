@@ -7,6 +7,7 @@ production:
   private:
   expires: 
   proxy:
+  disposition_override: 
 
 development:
   access_key_id: 
@@ -17,3 +18,4 @@ development:
   private:
   expires: 
   proxy:
+  disposition_override: 

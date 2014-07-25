@@ -6,14 +6,15 @@ module RedmineS3
   class Connection
     @@conn = nil
     @@s3_options = {
-      :access_key_id     => nil,
-      :secret_access_key => nil,
-      :bucket            => nil,
-      :endpoint          => nil,
-      :private           => false,
-      :expires           => nil,
-      :secure            => false,
-      :proxy             => false
+      :access_key_id        => nil,
+      :secret_access_key    => nil,
+      :bucket               => nil,
+      :endpoint             => nil,
+      :private              => false,
+      :expires              => nil,
+      :secure               => false,
+      :proxy                => false,
+      :disposition_override => false
     }
 
     class << self
@@ -66,6 +67,10 @@ module RedmineS3
 
       def proxy?
         @@s3_options[:proxy]
+      end
+
+      def proxy?
+        @@s3_options[:disposition_override]
       end
 
       def object(filename)
